@@ -12,7 +12,7 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-12EDBKJZQ3"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1828915420581549"
-     crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -67,7 +67,30 @@
                     <source src="${videoUrl}" type="application/x-mpegURL">
                 </video>
             `;
-            videojs(document.getElementById('video-player'));
+            videojs(document.getElementById('video-player'),
+                {
+                    controls: true,
+                    autoplay: true,
+                    preload: 'auto',
+                    fluid: true,
+                    playbackRates: [0.5, 1, 1.5, 2],
+                    controlBar: {
+                        volumePanel: {
+                            inline: false
+                        },
+                        skipBack: {
+                            showInAdvance: true
+                        },
+                        skipButtons: {
+                            backward: 10
+                        },
+                        skipButtons: {
+                            forward: 5
+                        }
+
+                    }
+                }
+            );
         }
 
         window.onload = loadVideoFromUrl;
